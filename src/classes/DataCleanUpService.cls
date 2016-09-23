@@ -46,14 +46,10 @@ public class DataCleanUpService {
                     BatchApexDeleteRecordsService d = new BatchApexDeleteRecordsService(strList.get(0),strList);//Created an instance to call Batch Apex class 
                     database.executeBatch(d,2000);
                 }
-                else
-                {
-                   Apexpages.addMessage(new ApexPages.Message(ApexPages.Severity.INFO,''+'Please select any object to delete'));
-                }
             }
             else
             {
-                System.debug('Your List is selectedObjects empty in DeleteDataUtility');
+                Apexpages.addMessage(new ApexPages.Message(ApexPages.Severity.INFO,''+'Please select any object to delete'));
             }
         } 
         catch(Exception ex)
